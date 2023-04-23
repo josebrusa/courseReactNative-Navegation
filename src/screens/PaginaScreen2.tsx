@@ -1,17 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { View, Text, Button } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { styles } from '../theme/AppTheme'
-import { useNavigation } from '@react-navigation/core'
+
+
 
 export const PaginaScreen2 = () => {
-    const navigator = useNavigation();
+
+    const navigation = useNavigation();
+
+    useEffect(() => {
+        navigation.setOptions({
+            title: 'Hola Mundo',
+            headerBackTitle: 'Atras',
+        })
+    }, [])
+
     return (
-        <View style={styles.globalMargin}>
-            <Text>Pagin 2</Text>
+        <View style={ styles.globalMargin }>
+            <Text style={ styles.title } >Pagina 2</Text>
+            
             <Button
                 title='Ir a Pagina 3'
-                onPress={() => navigator.navigate('PaginaScreen3')}
-            />
+                onPress={ () => navigation.navigate('PaginaScreen3') }
+                
+                />
         </View>
     )
 }
