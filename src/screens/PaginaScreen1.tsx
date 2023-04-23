@@ -1,13 +1,21 @@
 import React, { useEffect } from 'react'
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, TouchableOpacity } from 'react-native'
 import { styles } from '../theme/AppTheme';
-import { StackScreenProps } from '@react-navigation/stack';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { DrawerScreenProps } from '@react-navigation/drawer';
+// import { StackScreenProps } from '@react-navigation/stack';
 
-interface Props extends StackScreenProps<any, any>{};
+// interface Props extends StackScreenProps<any, any>{};
+
+interface Props extends DrawerScreenProps<any, any>{};
 
 export const PaginaScreen1 = ({ navigation }: Props) => {
     
+    useEffect(() => {
+        navigation.setOptions({
+            headerLeft:() => (<Button title='Menu' onPress={ () => navigation.toggleDrawer() }/>)
+        })
+
+    }, [])
 
     return (
         <View style={styles.globalMargin}>
@@ -16,16 +24,28 @@ export const PaginaScreen1 = ({ navigation }: Props) => {
                 title='Ir a Pagina 2'
                 onPress={() => navigation.navigate('PaginaScreen2')}
             />
-<Text>ir a Perfil</Text>
+            <Text style={ styles.title } >ir a Perfil</Text>
             
-            <TouchableOpacity
-                onPress={() => navigation.navigate('PersonaScreen', {
-                    id:1,
-                    name: 'jose'
-                })}
-            >
-                <Text>Got to profile</Text>
-            </TouchableOpacity>
+            <View style={{ flexDirection: 'row'}}>
+                <TouchableOpacity
+                    style={ styles.botonGrande }
+                    onPress={() => navigation.navigate('PersonaScreen', {
+                        id:1,
+                        name: 'jose'
+                    })}
+                >
+                    <Text style={ styles.btnText } >jose</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={ styles.botonGrande }
+                    onPress={() => navigation.navigate('PersonaScreen', {
+                        id:2,
+                        name: 'Maria'
+                    })}
+                >
+                    <Text style={ styles.btnText } >Maria</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }
