@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { color } from "react-native-reanimated";
 
 
 export const styles = StyleSheet.create({
@@ -41,6 +42,7 @@ export const styles = StyleSheet.create({
     },
 
     menuText: {
-        fontSize: 20
+        fontSize: 20,
+        color:'black'
     }
 })
