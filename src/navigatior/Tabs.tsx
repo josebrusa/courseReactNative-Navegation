@@ -19,6 +19,12 @@ const BottomTabAndroid = createMaterialBottomTabNavigator();
 
         return (
             <BottomTabAndroid.Navigator
+                style={{
+                    backgroundColor: 'white'
+                }}
+                barStyle={{
+                    backgroundColor:'white'
+                }}
                 screenOptions={({ route }) => ({
                     tabBarStyle: {
                     borderColor: 'white',
@@ -27,8 +33,10 @@ const BottomTabAndroid = createMaterialBottomTabNavigator();
                 },  
                     tabBarLabelStyle: {
                     fontSize: 15,
-                    elevation: 0
+                    elevation: 0,
+                    
                 },
+                
                 tabBarIcon: ( { color } ) => {
                 
                 let iconName: string = '';
@@ -77,11 +85,13 @@ const BottomTabIOS = createBottomTabNavigator();
     <BottomTabIOS.Navigator
         screenOptions={({ route }) => ({
             tabBarStyle: {
+                backgroundColor: 'white',
                 borderColor: 'white',
                 borderTopWidth: 0,
                 elevation: 0
             },
             tabBarLabelStyle: {
+                backgroundColor:'white',
                 fontSize: 15,
                 elevation: 0
             },
