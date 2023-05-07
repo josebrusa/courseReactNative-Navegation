@@ -1,6 +1,6 @@
 // definir como luce o que informacion tendre aqui 
 
-import { Children, createContext, useReducer } from "react";
+import { createContext, useReducer } from "react";
 import { authReducer } from "./authReducer";
 
 export interface AuthState {
