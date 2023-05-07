@@ -3,6 +3,8 @@ import { Text, View } from 'react-native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { styles } from '../theme/AppTheme';
 import { AuthContext } from '../context/AuthContext';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 
 export const SettingsScreen = () => {
 
@@ -18,6 +20,15 @@ export const SettingsScreen = () => {
             <Text style={ styles.title }>Settings</Text>
 
             <Text>{ JSON.stringify( authState, null, 4 )}</Text>
+
+            {
+                authState.favoriteIcon && (
+                    <Icon
+                        name={ authState.favoriteIcon }
+                        size={ 150 }
+                        color={'#7838A8'} />
+                )
+            }
 
         </View>
     )
