@@ -9,7 +9,7 @@ export type RootStackParams = {
     PaginaScreen1: undefined,
     PaginaScreen2: undefined,
     PaginaScreen3: undefined,
-    PersonaScreen: { id: number, name: string},
+    PersonaScreen: { id: number, name: string },
 }
 
 const Stack = createStackNavigator<RootStackParams>();

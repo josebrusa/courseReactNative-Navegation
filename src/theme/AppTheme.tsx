@@ -13,15 +13,15 @@ export const styles = StyleSheet.create({
     botonGrande: {
         width: 100,
         height: 100,
-        backgroundColor: '#37515F',
+        backgroundColor: '#7838A8',
         margin: 5,
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center'
     },
     btnText: {
-        color: 'white',
-        fontSize: 20
+        color: '#E1DD8F',
+        fontSize: 22
     },
     avatarContainer: {
         alignItems: 'center',
@@ -43,6 +43,7 @@ export const styles = StyleSheet.create({
 
     menuText: {
         fontSize: 20,
-        color:'black'
+        color:'black',
+        
     }
 })

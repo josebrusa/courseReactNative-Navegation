@@ -24,7 +24,7 @@ export const PersonaScreen = ({ route, navigation }: Props) => {
     })
         return (
             <View style={ styles.globalMargin }>
-                <Text style={ styles.title }> {JSON.stringify(params, null, 3)}</Text>
+                <Text style={ styles.title }> {JSON.stringify(params, null, 9)}</Text>
             </View>
         )
 }

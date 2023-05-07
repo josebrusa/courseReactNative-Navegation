@@ -4,10 +4,9 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
 import {Tab1Screen} from '../screens/Tab1Screen';
-import {Tab2Screen} from '../screens/Tab2Screen';
 import {StackNavigator} from './StackNavigator';
 import { TopTabNavigator } from './TopTabNavigator';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const Tabs = () => {
     return Platform.OS === 'android' ? <TabsAndroid /> : <TabsIOS />
@@ -19,9 +18,6 @@ const BottomTabAndroid = createMaterialBottomTabNavigator();
 
         return (
             <BottomTabAndroid.Navigator
-                style={{
-                    backgroundColor: 'white'
-                }}
                 barStyle={{
                     backgroundColor:'white'
                 }}
@@ -29,47 +25,47 @@ const BottomTabAndroid = createMaterialBottomTabNavigator();
                     tabBarStyle: {
                     borderColor: 'white',
                     borderTopWidth: 0,
-                    elevation: 0
+                    elevation: 0,
                 },  
+                    
                     tabBarLabelStyle: {
                     fontSize: 15,
                     elevation: 0,
-                    
                 },
                 
                 tabBarIcon: ( { color } ) => {
                 
-                let iconName: string = '';
+                let iconName: string = ''
 
                 switch( route.name ) {
                     case 'Tab1Screen':
-                        iconName = 'T1'
+                        iconName = 'home-outline'
                     break;
                     
                     case 'Tab2Screen':
-                        iconName = 'T2'
+                        iconName = 'mail-outline'
                     break;
 
                     case 'StackNavigator':
-                        iconName = 'ST'
+                        iconName = 'person-outline'
                     break;
                 }
 
-                return <Text style={{ color }}>{ iconName }</Text>
+                return <Icon name={ iconName } size={25} color={ color = '#7838A8'}/>
             }
         })}
             >
             <BottomTabAndroid.Screen
                 name="Tab1Screen"
-                options={{ title: 'Tab 1' }}
+                options={{ title: 'Home' }}
                 component={Tab1Screen} />
             <BottomTabAndroid.Screen
                 name="Tab2Screen"
-                options={{ title: 'Tab 2' }}
+                options={{ title: 'mail' }}
                 component={TopTabNavigator} />
             <BottomTabAndroid.Screen
                 name="StackNavigator"
-                options={{ title: 'Stack' }}
+                options={{ title: 'User' }}
                 component={StackNavigator} />
             </BottomTabAndroid.Navigator>
             )

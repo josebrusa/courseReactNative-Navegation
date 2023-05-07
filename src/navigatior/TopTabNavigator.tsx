@@ -5,6 +5,7 @@ import { ContactsScreen } from '../screens/ContactsScreen';
 import { AlbumScreen } from '../screens/AlbumScreen';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Text } from 'react-native'
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 const Tab = createMaterialTopTabNavigator();
@@ -13,48 +14,46 @@ const Tab = createMaterialTopTabNavigator();
 export const TopTabNavigator = () => {
 
     const { top: paddingTop } = useSafeAreaInsets();
-
     return (
         <Tab.Navigator
-            
             sceneContainerStyle= {{
-            backgroundColor:'white',
-            
-        }}
-        style={{
-            backgroundColor:'white',
-            paddingTop,
-            
-        }}
-        screenOptions = {({ route }) => ({
-            tabBarActiveTintColor: '#7838A8',
-            tabBarInactiveTintColor: '#09181B',
-            tabBarIndicatorStyle: {
-                backgroundColor: '#7838A8'
+                backgroundColor:'white',
+            }}
+            style={{
+                paddingTop,
+            }}
+            screenOptions = {({ route }) => ({
+                tabBarIndicatorStyle: {
+                backgroundColor: '#7838A8',
             },
-            tabBarStyle: {
-                elevation: 0
+                tabBarStyle: {
+                    elevation: 0,
             },
-            tabBarLabelStyle: {
-                elevation:0
+                tabBarLabelStyle:{
+                    fontSize:11,
             },
+                tabBarPressColor:'rgba(120, 56, 168, 0.4)',
+                tabBarShowIcon: true,
+                tabBarActiveTintColor: '#7838A8',
+                tabBarInactiveTintColor:'black',
+
             tabBarIcon:({ color, focused }) => {
                 
-                let iconName: string = '';
+                let iconName: string = ''
                 switch( route.name ){
                     case 'Chat':
-                        iconName = 'ch'
+                        iconName = 'chatbubble-outline'
                     break;
                     
                     case 'Contacts':
-                        iconName = 'ct'
+                        iconName = 'people-outline'
                     break;
                     
                     case 'Albums':
-                        iconName = 'al'
+                        iconName = 'albums-outline'
                     break;
                 }
-                return <Text style={{ color: '#7838A8' }}>{ iconName }</Text>
+                return <Icon name={ iconName } size={25} color={ color = '#7838A8'}/>
             }
 
         })}
