@@ -15,7 +15,7 @@ export const ContactsScreen = () => {
             {
                 !isLoggedIn
                     ? <Button title= 'SignIn' onPress={ signIn } />
-                    : <Button title='Get Out' onPress={ () =>  console.log('click para realizar el singOut')} />
+                    : null
             }
         </View>
     )
